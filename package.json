@@ -21,10 +21,8 @@
     "url": ""
   },
   "homepage": "",
-  "devDependencies": {
-    "cypress": "^9.7.0"
-  },
   "dependencies": {
-    "faker": "^5.5.3"
+    "@faker-js/faker": "^8.3.1",
+    "cypress": "^13.6.0"
   }
 }
