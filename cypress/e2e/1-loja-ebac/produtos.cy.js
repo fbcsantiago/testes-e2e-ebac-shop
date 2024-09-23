@@ -6,9 +6,8 @@ describe('funcionalidade: Produtos', () => {
 
     beforeEach(() => {
         cy.login();
-        produtosPage.visitarUrl();
-      
-       
+        produtosPage.visitarUrl();     
+
     });
 
     it('Deve selecionar um produto da lista', () => {
@@ -28,11 +27,11 @@ describe('funcionalidade: Produtos', () => {
     });
 
     it('Deve adicionar produto ao carrinho', () => {
-        let qtd = 7
-        produtosPage.buscarProduto('Ariel Roll Sleeve Sweatshirt')
-        produtosPage.addProdutoCarrinho('M', 'Green', qtd)
+        let qtd = 4
+        produtosPage.buscarProduto('Aero Daily Fitness Tee')
+        produtosPage.addProdutoCarrinho('M', 'Brown', qtd)
 
-        cy.get('.woocommerce-message').should('contain', qtd + ' “Ariel Roll Sleeve Sweatshirt” foram adicionados no seu carrinho.')
+        cy.get('.woocommerce-message').should('contain', qtd + ' × “Aero Daily Fitness Tee” foram adicionados no seu carrinho.')
 
     });
     it('Deve adicionar produto ao carrinho buscando da massa de dados', () => {
@@ -46,7 +45,7 @@ describe('funcionalidade: Produtos', () => {
 
         })
     });
-    it.only('Deve validar minha compra', () => {
+    it('Deve validar minha compra', () => {
         cy.fixture('produtos').then(dados => {
             produtosPage.buscarProduto(dados[2].nomeProduto)
             produtosPage.addProdutoCarrinho(
